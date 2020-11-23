@@ -57,12 +57,12 @@ std::string PlainSerializer::serialize(AttributeTree attributes) {
         const AttributeNode node = i->second;
 
         if(node.nodeType == __TYPE_NODE__) {
-            auto child = (HasAttributes *) node.data.get();
+            auto child = (AttributeTree *) node.data.get();
             if(child == nullptr) {
                 serialized += indentation + key + "[" + node.nodeType + "]" + ": " + "nil" + "\n";
             } else {
                 this->__indentation++;
-                serialized += indentation + key + "[" + node.nodeType + "]" + ": " + "\n" + this->serialize(child->getAttributes());
+                serialized += indentation + key + "[" + node.nodeType + "]" + ": " + "\n" + this->serialize(*child);
                 this->__indentation--;
 //                serialized += this->serialize(child->getAttributes());
             }

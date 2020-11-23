@@ -9,5 +9,6 @@
 #include "./AttributeTree.h"
 #include "./types.h"
 #include "./HasAttributes.h"
+#include "./IAttributeModel.h"
 
 #endif //UNTITLED_ATTRIBUTE_INDEX_H
