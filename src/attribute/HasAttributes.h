@@ -8,6 +8,9 @@
 
 #include "AttributeTree.h"
 
+/**
+ * @deprecated
+ */
 class HasAttributes {
 public:
     virtual AttributeTree getAttributes() = 0;
