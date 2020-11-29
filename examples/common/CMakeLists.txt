@@ -3,7 +3,9 @@ project(prog)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(prog src/main.cpp)
+add_executable(prog src/main.cpp src/models/Model.h src/models/Model.cpp)
+add_executable(remove_child src/remove_child/main.cpp src/models/Model.h src/models/Model.cpp)
+# add_executable(prog src/main.cpp)
 
 add_library(mylib SHARED IMPORTED )
 # You can define two import-locations: one for debug and one for release.
@@ -13,3 +15,4 @@ add_library(mylib SHARED IMPORTED )
 #set_target_properties(mylib PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/libcore.so ) #works
 set_target_properties(mylib PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../../cmake-build-debug/libcore.so)
 TARGET_LINK_LIBRARIES(prog mylib)
+TARGET_LINK_LIBRARIES(remove_child mylib)
